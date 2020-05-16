@@ -8,15 +8,26 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {LoginPage} from './login/login.page';
+import {FingerprintAIO} from '@ionic-native/fingerprint-aio';
+import {LoginPageModule} from './login/login.module';
+import {ComponentModule} from './widgets/component.module';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  entryComponents: [LoginPage],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    LoginPageModule,
+    ComponentModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FingerprintAIO
   ],
   bootstrap: [AppComponent]
 })
